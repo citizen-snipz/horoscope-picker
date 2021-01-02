@@ -229,11 +229,11 @@ function calcHoroscope(month, day) {
     if (horoscope.endMonth === month && horoscope.endDay >= day) return true;
   })[0];
 
-  const horoscopeImg = document.getElementById("horoscopeImg");
+  const horoscopeImgCont = document.getElementById("horoscopeImgContainer");
   const img = document.createElement("img");
   img.className = "horoscopeImg";
   img.src = `${matchHoroscope.image}`;
-  horoscopeImg.replaceChild(img, horoscopeImg.firstElementChild);
+  horoscopeImgCont.replaceChild(img, horoscopeImgCont.firstElementChild);
 
   zodiacSign.innerHTML = `<h2>${matchHoroscope.symbol} You are a(n) ${matchHoroscope.sign}!   ${matchHoroscope.symbol}</h2>`;
   horoscopeDesc.innerHTML = `You are ${matchHoroscope.item}! ${matchHoroscope.message}`;

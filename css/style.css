@@ -56,6 +56,7 @@ header p {
   text-shadow: 2px 2px 3px rgb(101, 172, 238);
   border: 2px solid rgb(137, 73, 228);
   border-radius: 11px;
+  box-shadow: 3px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 button {
@@ -69,6 +70,7 @@ button {
   text-shadow: 2px 2px 3px rgb(101, 172, 238);
   border: 2px solid rgba(17, 62, 121, 0.7);
   border-radius: 11px;
+  box-shadow: 3px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 .dropBtn:focus,
@@ -105,13 +107,19 @@ h2 {
 }
 
 @media screen and (max-width: 750px) {
-  header {
+  body {
+    margin: 0;
     width: 100%;
+    height: fit-content;
+  }
+
+  header {
+    width: 80%;
     font-size: 1.1em;
   }
 
   header p {
-    font-size: 0.8em;
+    font-size: 1em;
   }
 
   .dropdown-container {
@@ -119,21 +127,42 @@ h2 {
     flex-wrap: wrap;
   }
 
-  button {
+  button,
+  .dropBtn {
     width: 100%;
     align-self: center;
+    margin-top: 0.8em;
   }
 
-  img.horoscopeImg {
+  #showHoroscope {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  #horoscopeImgContainer {
     width: 90%;
+    height: fit-content;
+    text-align: center;
+  }
+
+  #horoscopeImgContainer img.horoscopeImg {
+    width: 90vw;
+    height: 55vw;
     display: block;
   }
-  #populateHoroscopeDescription p {
+  div#populateHoroscopeDescription {
     width: 90%;
+    height: fit-content;
     display: block;
+    font-size: 1.3em;
+    text-align: center;
+    margin: 1.2em;
   }
 
   h2 {
-    font-size: 2em;
+    font-size: 1.3em;
   }
 }
