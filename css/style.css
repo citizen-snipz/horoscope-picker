@@ -103,6 +103,36 @@ h2 {
   margin-top: 5rem;
 }
 
-.hidden {
-  display: none;
+@media only screen and (max-width: 750px) {
+  header {
+    width: 100%;
+    font-size: 1.1em;
+  }
+
+  header p {
+    font-size: 0.8em;
+  }
+
+  .dropdown-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  button {
+    width: 100%;
+    align-self: center;
+  }
+
+  img {
+    width: 90%;
+    display: block;
+  }
+  #populateHoroscopeDescription {
+    width: 90%;
+    display: block;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
 }
