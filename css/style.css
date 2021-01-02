@@ -5,6 +5,7 @@
 /* Box Model Hack */
 * {
   box-sizing: border-box;
+  outline: 1px solid white;
 }
 
 /******************************************
@@ -45,46 +46,29 @@ header p {
   background-image: linear-gradient(40deg, rgb(91, 155, 238), rgb(59, 9, 240));
   color: rgb(248, 246, 246);
   padding: 0.5em 1em;
-  margin: 0 2em;
-  font-family: "Spirax", cursive;
+  margin: 0 0.7em;
+  font-family: "Arima Madurai", cursive;
+  text-align: c;
   font-size: 1.4em;
   text-shadow: 2px 2px 3px rgb(101, 172, 238);
   border: 2px solid rgb(137, 73, 228);
   border-radius: 11px;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
+button {
+  background-color: rgb(92, 34, 131);
+  background-image: linear-gradient(40deg, rgb(156, 94, 243), rgb(86, 44, 236));
+  color: rgb(248, 246, 246);
+  padding: 0.5em 1em;
+  margin: 0 2em;
+  font-family: "Spirax", cursive;
+  font-size: 1.4em;
+  text-shadow: 2px 2px 3px rgb(101, 172, 238);
+  border: 2px solid rgba(17, 62, 121, 0.7);
+  border-radius: 11px;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: rgb(91, 155, 238);
-  min-width: 100px;
-  box-shadow: 0 8px 16px 0 rgba(90, 9, 90, 1);
-  border-radius: 10px;
-  z-index: 1;
-}
-
-.dropdown-content p {
-  color: rgb(233, 231, 231);
-  padding: 0;
-
-  display: block;
-  text-align: center;
-  font-family: "Arima Madurai", cursive;
-}
-
-.dropdown-content p:hover {
-  background-color: rgba(94, 18, 245, 0.8);
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropBtn {
-  background-color: lavender;
+.dropBtn:focus,
+button:focus {
+  outline: 0;
 }

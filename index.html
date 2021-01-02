@@ -32,59 +32,31 @@
     </header>
     <div class="dropdown-container">
       <div class="dropdown">
-        <button class="dropBtn">Month <i class="fas fa-caret-down"></i></button>
-        <div class="month-content dropdown-content">
-          <p class="months">January</p>
-          <p class="months">February</p>
-          <p class="months">March</p>
-          <p class="months">April</p>
-          <p class="months">May</p>
-          <p class="months">June</p>
-          <p class="months">July</p>
-          <p class="months">August</p>
-          <p class="months">September</p>
-          <p class="months">October</p>
-          <p class="months">November</p>
-          <p class="months">December</p>
-        </div>
+        <select name="month" id="month" class="dropBtn">
+          <div class="month-content dropdown-content">
+            <option value="">Month <i class="fas fa-caret-down"></i></option>
+            <option class="months">January</option>
+            <option class="months">February</option>
+            <option class="months">March</option>
+            <option class="months">April</option>
+            <option class="months">May</option>
+            <option class="months">June</option>
+            <option class="months">July</option>
+            <option class="months">August</option>
+            <option class="months">September</option>
+            <option class="months">October</option>
+            <option class="months">November</option>
+            <option class="months">December</option>
+          </div>
+        </select>
       </div>
 
       <div class="dropdown">
-        <button class="dropBtn">Day <i class="fas fa-caret-down"></i></button>
-        <div class="day-content dropdown-content">
-          <p class="days">1</p>
-          <p class="days">2</p>
-          <p class="days">3</p>
-          <p class="days">4</p>
-          <p class="days">5</p>
-          <p class="days">6</p>
-          <p class="days">7</p>
-          <p class="days">8</p>
-          <p class="days">9</p>
-          <p class="days">10</p>
-          <p class="days">11</p>
-          <p class="days">12</p>
-          <p class="days">13</p>
-          <p class="days">14</p>
-          <p class="days">15</p>
-          <p class="days">16</p>
-          <p class="days">17</p>
-          <p class="days">18</p>
-          <p class="days">19</p>
-          <p class="days">20</p>
-          <p class="days">21</p>
-          <p class="days">22</p>
-          <p class="days">23</p>
-          <p class="days">24</p>
-          <p class="days">25</p>
-          <p class="days">26</p>
-          <p class="days">27</p>
-          <p class="days">28</p>
-          <p class="days">29</p>
-          <p class="days">30</p>
-          <p class="days">31</p>
-        </div>
+        <select class="dropBtn" id="day">
+          <option value="">Day</option>
+        </select>
       </div>
+      <button id="showZodiacBtn">What's my sign?</button>
     </div>
     <h2 id="populateZodiacSign"></h2>
     <div id="horoscopeImg"></div>

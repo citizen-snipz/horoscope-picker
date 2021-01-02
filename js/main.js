@@ -1,6 +1,6 @@
 //array of horscope objects
 
-let horoscope = [
+let horoscopes = [
   {
     sign: "Aquarius",
     symbol: "♒",
@@ -146,21 +146,81 @@ let horoscope = [
 const zodiacSign = document.getElementById("populateZodiacSign");
 const horoscopeImg = document.getElementById("horoscopeImg");
 const horoscopeDesc = document.getElementById("populateHoroscopeDescription");
-const dropdownBtn = document.querySelector(".dropdownBtn");
-let months = document.querySelectorAll(".months");
-let days = document.querySelectorAll(".days");
+const showZodiacBtn = document.querySelector("button");
+const monthSelect = document.getElementById("month");
+const daySelect = document.getElementById("day");
 
-dropdownBtn.addEventlistener("click", calcHoroscope);
+showZodiacBtn.addEventListener("click", (event) => {
+  //splitting this up from calcHoroscope allows you to add validation before passing values into your function that you want to do just 1 thing: calculate a horoscope. Also, I love you.
 
-function calcHoroscope() {
-  months.forEach((month) => {
-    days.forEach((day) => {
-      if (
-        (month.value === "January" && day.value <= 20) ||
-        (month.value === "February" && day.value <= 18)
-      ) {
-        zodiacSign.innerHTML = `You are a ${aquarius.sign} ${aquarius.symbol}!`;
-      }
-    });
-  });
+  const month = monthSelect.value;
+  const day = daySelect.value;
+
+  //you can write another function here to do validation, like checking to see if it is a month that has 31 days
+  // if (isDateValid(month, day))
+  calcHoroscope(month, day);
+});
+
+/* 
+1. put an event listener on the monthSelect listening for change event
+2. call outside function that checks to see what month it is and inserts the correct number to the daySelect
+*/
+
+const shortMonths = ["April", "June", "September", "November"];
+
+monthSelect.addEventListener("change", (event) => {
+  const month = event.target.value;
+  deleteOptions(daySelect);
+  if (month === "February") {
+    createOptions(29);
+  } else if (shortMonths.includes(month)) {
+    createOptions(30);
+  } else {
+    createOptions(31);
+  }
+});
+
+function createOptions(num) {
+  for (let i = 1; i <= num; i++) {
+    const option = document.createElement("option");
+    option.classList.add("days");
+    option.innerHTML = `${i}`;
+    daySelect.appendChild(option);
+  }
 }
+
+//this function removes the number of days from a previous change in month dropdown
+function deleteOptions(targetSelect) {
+  //the loops iterates through the number of children the previous event change created so that all are removed before the new month's children are appended.
+  const numOfOptions = targetSelect.children.length;
+
+  if (numOfOptions > 1) {
+    for (let i = 1; i < numOfOptions; i++) {
+      targetSelect.removeChild(
+        //nextElementSibling allows the "Day" label to be retained while all other option elements created are removed from the DOM
+        targetSelect.firstElementChild.nextElementSibling
+      );
+    }
+  }
+}
+
+function calcHoroscope(month, day) {
+  console.log(month, day);
+
+  const matchHoroscope = horoscopes.filter((horoscope) => {
+    return (
+      //we want to make sure that we are checking the start month with the start day, and to make sure the start day comes before or on the user input day
+      (horoscope.startMonth === month && horoscope.startDay <= day) ||
+      //here we want to make sure that the user input day comes before the end day of the end month
+      (horoscope.endMonth === month && horoscope.endDay >= day)
+    );
+  })[0];
+
+  console.log(matchHoroscope);
+  console.log(matchHoroscope.sign);
+}
+
+//splitting up your functions lets you test values quickly by calling them like this instead of having to click through your GUI
+calcHoroscope("February", "15");
+calcHoroscope("December", "18");
+calcHoroscope("February", "31");
