@@ -12,6 +12,7 @@
 /* LAYOUT
 /*******************************************/
 body {
+  background-color: rgb(141, 204, 247);
   background-image: url(/img/background-lightenend.jpg);
   background-position: top center;
   background-size: cover;
@@ -103,7 +104,7 @@ h2 {
   margin-top: 5rem;
 }
 
-@media only screen and (max-width: 750px) {
+@media screen and (max-width: 750px) {
   header {
     width: 100%;
     font-size: 1.1em;
@@ -123,11 +124,11 @@ h2 {
     align-self: center;
   }
 
-  img {
+  img.horoscopeImg {
     width: 90%;
     display: block;
   }
-  #populateHoroscopeDescription {
+  #populateHoroscopeDescription p {
     width: 90%;
     display: block;
   }
